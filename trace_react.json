@@ -1,0 +1,72 @@
+[
+  {
+    "turno": 1,
+    "thread_id": "sesion-auditoria-cliente-102",
+    "pregunta": "¿Cuántos pedidos tuvo el cliente 102, cuál fue el total gastado y cuáles son los productos incluidos en su último pedido?",
+    "respuesta_final": "El cliente 102 (TechCorp Argentina) realizó un total de 3 pedidos por un monto acumulado de $14.500,00. Su último pedido fue el P-9277 (con fecha 2026-09-01 por $5.000,00) y contiene los siguientes productos:\n- Servidor Rack Dell PowerEdge R750 (1U)\n- Kit de rieles deslizantes",
+    "historial_mensajes": [
+      {
+        "tipo": "HumanMessage",
+        "contenido": "¿Cuántos pedidos tuvo el cliente 102, cuál fue el total gastado y cuáles son los productos incluidos en su último pedido?"
+      },
+      {
+        "tipo": "AIMessage",
+        "contenido": "",
+        "tool_calls": [
+          {
+            "id": "call_buscar_pedidos_102",
+            "name": "buscar_pedidos",
+            "args": {
+              "cliente_id": 102
+            }
+          }
+        ]
+      },
+      {
+        "tipo": "ToolMessage",
+        "contenido": "{\"cliente_id\": 102, \"nombre_cliente\": \"TechCorp Argentina\", \"cantidad_pedidos\": 3, \"monto_total\": 14500.0, \"pedidos\": [{\"pedido_id\": \"P-9001\", \"fecha\": \"2026-03-02\", \"total\": 4200.0}, {\"pedido_id\": \"P-9144\", \"fecha\": \"2026-05-19\", \"total\": 5300.0}, {\"pedido_id\": \"P-9277\", \"fecha\": \"2026-09-01\", \"total\": 5000.0}]}",
+        "tool_call_id": "call_buscar_pedidos_102",
+        "tool_name": "buscar_pedidos"
+      },
+      {
+        "tipo": "AIMessage",
+        "contenido": "",
+        "tool_calls": [
+          {
+            "id": "call_detalle_pedido_P9277",
+            "name": "obtener_detalle_pedido",
+            "args": {
+              "pedido_id": "P-9277"
+            }
+          }
+        ]
+      },
+      {
+        "tipo": "ToolMessage",
+        "contenido": "{\"pedido_id\": \"P-9277\", \"cliente_id\": 102, \"fecha\": \"2026-09-01\", \"total\": 5000.0, \"items\": [\"Servidor Rack Dell PowerEdge R750 (1U)\", \"Kit de rieles deslizantes\"], \"direccion_entrega\": \"Datacenter Central, Parque Patricios, CABA\", \"estado\": \"Entregado\"}",
+        "tool_call_id": "call_detalle_pedido_P9277",
+        "tool_name": "obtener_detalle_pedido"
+      },
+      {
+        "tipo": "AIMessage",
+        "contenido": "El cliente 102 (TechCorp Argentina) realizó un total de 3 pedidos por un monto acumulado de $14.500,00. Su último pedido fue el P-9277 (con fecha 2026-09-01 por $5.000,00) y contiene los siguientes productos:\n- Servidor Rack Dell PowerEdge R750 (1U)\n- Kit de rieles deslizantes"
+      }
+    ]
+  },
+  {
+    "turno": 2,
+    "thread_id": "sesion-auditoria-cliente-102",
+    "pregunta": "¿Y a qué dirección fue entregado ese último pedido?",
+    "respuesta_final": "Ese último pedido (P-9277) fue entregado en Datacenter Central, Parque Patricios, CABA (estado: Entregado).",
+    "historial_mensajes": [
+      {
+        "tipo": "HumanMessage",
+        "contenido": "¿Y a qué dirección fue entregado ese último pedido?"
+      },
+      {
+        "tipo": "AIMessage",
+        "contenido": "Ese último pedido (P-9277) fue entregado en Datacenter Central, Parque Patricios, CABA (estado: Entregado)."
+      }
+    ]
+  }
+]

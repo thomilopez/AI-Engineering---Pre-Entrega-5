@@ -1,7 +1,22 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Compilación y caché de Python
 __pycache__/
 *.pyc
-.venv/
-venv/
+*.pyo
+
+# Variables de entorno y secretos (NUNCA SUBIR A GIT)
 .env
+*.env
+
+# Base de datos local de checkpoints generada durante la ejecución
 checkpoints.db*
-trace_react.json
+
+# IDE y sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
